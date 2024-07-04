@@ -5,13 +5,11 @@ import React, { useEffect, useRef, useState } from 'react';
 
 export const ShortURL = ({
 	url,
-	target,
 	protocol,
 	className,
 	children,
 }: {
 	url: string;
-	target?: '_blank' | '_self' | '_parent' | '_top' | null;
 	protocol?: boolean;
 	className?: string;
 	children?: React.ReactNode;
@@ -54,7 +52,7 @@ export const ShortURL = ({
 	return (
 		<a
 			className={className}
-			{...(target == null ? null : { target: target })}
+			target="_blank"
 			href={`https://vgz.vercel.app/${shortURL == null ? '' : shortURL}` ?? ''}
 		>
 			{children
